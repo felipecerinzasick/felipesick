@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path = '') => `${base}${path}`;
+const posts = [
+  { href: withBase('writing/bitcoin-und-steuern'), title: 'Bitcoin und Steuern: Firma oder privat halten?', meta: 'September 2026 · German' },
+  { href: withBase('writing/suitability-of-var'), title: 'The suitability of VaR in managing economic uncertainty', meta: 'October 2024' },
+];
+---
+<Base title="Writing" description="Essays on finance, tax and risk by Felipe Sick.">
+  <h1>Writing</h1>
+  <p class="lede">Occasional pieces on finance, tax and risk. Informational only, not advice.</p>
+  <ul class="entries">
+    {posts.map((p) => (
+      <li>
+        <a class="title" href={p.href}>{p.title}</a>
+        <span class="meta">{p.meta}</span>
+      </li>
+    ))}
+  </ul>
+</Base>

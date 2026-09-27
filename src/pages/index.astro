@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path = '') => `${base}${path}`;
+---
+<Base>
+  <section class="intro">
+    <h1>Finance and operations for founders.</h1>
+    <div class="intro-row">
+      <img src={withBase('headshot.png')} alt="Felipe Sick" width="88" height="88" class="headshot" />
+      <div>
+      <p class="lede">
+        I'm Felipe, a finance operator in Zurich. I run accounting, VAT and year-end for Swiss
+        SMEs at a fiduciary firm, and I've automated most of the repetitive work while keeping
+        the controls that make the numbers trustworthy.
+      </p>
+      <p>
+        Before that: investment analysis in Geneva, product management in Munich, and two years
+        researching financial reporting in St. Gallen. I'm now looking to join an early-stage
+        company as its first finance hire, or to work with a few founders part-time.
+      </p>
+      <a class="button" href="mailto:felipe.sick@bluewin.ch">Write to me for a coffee</a>
+      </div>
+    </div>
+  </section>
+
+  <h2>What I take on</h2>
+  <div class="services">
+    <div>
+      <h3>Books and close</h3>
+      <p>Monthly close, VAT, payroll accruals, year-end under Swiss OR. Automated where it's safe, reviewed where it matters.</p>
+    </div>
+    <div>
+      <h3>Metrics and runway</h3>
+      <p>ARR, churn, CAC payback, burn and runway in one model the founders actually use.</p>
+    </div>
+    <div>
+      <h3>Board and investor reporting</h3>
+      <p>A one-page monthly pack, investor updates, and the data room ready before the round starts.</p>
+    </div>
+  </div>
+  <p class="muted proof">Swiss OR · VAT · Python for automation · German and English</p>
+
+  <h2>Work</h2>
+  <ul class="entries">
+    <li>
+      <a class="title" href={withBase('work/saas-model')}>A SaaS financial model built from the outside</a>
+      <span class="meta">Case study · In progress</span>
+      <p>ARR build, churn and CAC assumptions, runway under three scenarios and a one-page board summary for a Zurich fintech, from public information only.</p>
+    </li>
+    <li>
+      <a class="title" href={withBase('work/accounting-automation')}>Accounting automation with the controls left in</a>
+      <span class="meta">Case study · In progress</span>
+      <p>What happened when I automated the monthly close for an SME mandate: hours saved, what stayed manual, and how reconciliation and exception review keep it honest.</p>
+    </li>
+    <li>
+      <a class="title" href={withBase('work/multi-entity-reporting')}>Consolidated reporting across entities</a>
+      <span class="meta">Case study · In progress</span>
+      <p>A liquidity and asset view across a holding structure with intercompany balances and shareholder loans, the way a family office or a founder with several companies needs it.</p>
+    </li>
+  </ul>
+
+  <h2>Writing</h2>
+  <ul class="entries">
+    <li>
+      <a class="title" href={withBase('writing/bitcoin-und-steuern')}>Bitcoin und Steuern: Firma oder privat halten?</a>
+      <span class="meta">September 2026 · German</span>
+    </li>
+    <li>
+      <a class="title" href={withBase('writing/suitability-of-var')}>The suitability of VaR in managing economic uncertainty</a>
+      <span class="meta">October 2024</span>
+    </li>
+  </ul>
+</Base>
+
+<style>
+  .intro {
+    margin-top: 1.5rem;
+  }
+
+  .intro h1 { margin-top: 0; }
+
+  .intro-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .headshot {
+    border-radius: 8px;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    margin-top: 0.3rem;
+  }
+
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  .button:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .services div {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.9rem;
+  }
+
+  .services h3 {
+    margin-top: 0;
+    font-size: 1.05rem;
+  }
+
+  .services p {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .proof {
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .intro-row {
+      grid-template-columns: 1fr;
+    }
+
+    .headshot {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

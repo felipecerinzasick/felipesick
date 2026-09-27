@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path = '') => `${base}${path}`;
+const items = [
+  { href: withBase('work/saas-model'), title: 'A SaaS financial model built from the outside', meta: 'Case study · In progress', text: 'ARR build, churn and CAC assumptions, runway under three scenarios and a one-page board summary for a Zurich fintech, from public information only.' },
+  { href: withBase('work/accounting-automation'), title: 'Accounting automation with the controls left in', meta: 'Case study · In progress', text: 'What happened when I automated the monthly close for an SME mandate: hours saved, what stayed manual, and how reconciliation and exception review keep it honest.' },
+  { href: withBase('work/multi-entity-reporting'), title: 'Consolidated reporting across entities', meta: 'Case study · In progress', text: 'A liquidity and asset view across a holding structure with intercompany balances and shareholder loans.' },
+];
+---
+<Base title="Work" description="Case studies: SaaS financial modelling, accounting automation, multi-entity reporting.">
+  <h1>Work</h1>
+  <p class="lede">Finished pieces, not a list of skills. Each one is something you can open and check.</p>
+  <ul class="entries">
+    {items.map((i) => (
+      <li>
+        <a class="title" href={i.href}>{i.title}</a>
+        <span class="meta">{i.meta}</span>
+        <p>{i.text}</p>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -1,0 +1,165 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = 'Felipe Sick, finance and operations for early-stage companies in Zurich.' } = Astro.props;
+const fullTitle = title ? `${title} – Felipe Sick` : 'Felipe Sick';
+const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path = '') => `${base}${path}`;
+const nav = [
+  { href: withBase('work'), label: 'Work' },
+  { href: withBase('writing'), label: 'Writing' },
+  { href: withBase('about'), label: 'About' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href={withBase()}>Felipe Sick</a>
+      <nav aria-label="Main">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </header>
+    <div class="banner" role="presentation" style={`--banner-image: url('${withBase('mountain_new.jpeg')}')`}></div>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Zurich, Switzerland</p>
+      <p>
+        <a href="mailto:felipe.sick@bluewin.ch">felipe.sick@bluewin.ch</a><br />
+        <a href="https://www.linkedin.com/in/felipe-sick-a107b0166/" rel="me">LinkedIn</a><br />
+        <a href="https://github.com/felipecerinzasick" rel="me">GitHub</a>
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #17233a;
+    --ink-soft: #55607a;
+    --rule: #d6dae3;
+    --paper: #ffffff;
+    --accent: #1f6a4e;
+    --accent-hover: #164d39;
+    --measure: 40rem;
+    font-size: 106.25%; /* 17px */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e6e9f0;
+      --ink-soft: #a6adbe;
+      --rule: #2d3548;
+      --paper: #0f1421;
+      --accent: #6cc39d;
+      --accent-hover: #8fd6b6;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'tnum' 1;
+    line-height: 1.55;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  main { flex: 1; width: 100%; max-width: var(--measure); margin: 0 auto; padding: 0 1.25rem 4rem; }
+  h1, h2, h3 {
+    font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.6em;
+  }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.5rem); margin-top: 3rem; }
+  h2 { font-size: 1.35rem; margin-top: 2.75rem; }
+  h3 { font-size: 1.1rem; margin-top: 2rem; }
+  p, li { max-width: 65ch; }
+  p { margin: 0 0 1.1em; }
+  a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  a:hover { color: var(--accent-hover); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  strong { font-weight: 500; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+  blockquote { margin: 1.5rem 0; padding-left: 1rem; border-left: 2px solid var(--rule); color: var(--ink-soft); }
+  table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 500; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 0.92em; }
+  img { max-width: 100%; height: auto; }
+  .muted { color: var(--ink-soft); }
+  .lede { font-size: 1.15rem; line-height: 1.5; }
+
+  .site-header {
+    width: 100%; max-width: var(--measure); margin: 0 auto;
+    padding: 1.5rem 1.25rem 0;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  }
+  .wordmark { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .site-header nav { display: flex; gap: 1.25rem; }
+  .site-header nav a { color: var(--ink-soft); text-decoration: none; }
+  .site-header nav a:hover, .site-header nav a[aria-current='page'] { color: var(--ink); }
+
+  .banner {
+    position: relative;
+    width: min(var(--measure), calc(100% - 2.5rem));
+    height: clamp(92px, 14vh, 136px);
+    margin: 1.25rem auto 0;
+    background: var(--banner-image) center 45% / cover no-repeat;
+  }
+  .banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, var(--paper) 100%);
+  }
+
+  .site-footer {
+    width: 100%; max-width: var(--measure); margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft); font-size: 0.95rem;
+    display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  }
+  .site-footer p { margin: 0; }
+
+  /* Lists of entries (work, writing) */
+  .entries { list-style: none; padding: 0; margin: 0; }
+  .entries li { padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+  .entries li:last-child { border-bottom: 1px solid var(--rule); }
+  .entries a.title { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .entries a.title:hover { color: var(--accent); }
+  .entries .meta { display: block; color: var(--ink-soft); font-size: 0.92rem; margin-top: 0.15rem; }
+  .entries p { margin: 0.4rem 0 0; }
+
+  .status { display: inline-block; font-size: 0.85rem; color: var(--ink-soft); border: 1px solid var(--rule); padding: 0.05rem 0.5rem; border-radius: 999px; margin-left: 0.4rem; vertical-align: middle; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const { title, description, date, status, summary } = frontmatter;
+---
+<Base title={title} description={description ?? summary}>
+  <article>
+    <h1>{title}</h1>
+    {(date || status) && (
+      <p class="muted article-meta">
+        {date && <span>{date}</span>}
+        {status && <span class="status">{status}</span>}
+      </p>
+    )}
+    {summary && <p class="lede">{summary}</p>}
+    <slot />
+  </article>
+</Base>
+
+<style>
+  .article-meta { margin-top: -0.4rem; margin-bottom: 1.5rem; }
+  .article-meta .status { margin-left: 0.6rem; }
+</style>

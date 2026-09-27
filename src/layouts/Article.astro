@@ -3,7 +3,7 @@ import Base from './Base.astro';
 const { frontmatter } = Astro.props;
 const { title, description, date, status, summary } = frontmatter;
 ---
-<Base title={title} description={description ?? summary}>
+<Base title={`${title} — Felipe Sick`} description={description ?? summary}>
   <article>
     <h1>{title}</h1>
     {(date || status) && (

@@ -1,23 +1,33 @@
 ---
 import Base from '../layouts/Base.astro';
-const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const withBase = (path = '') => `${base}${path}`;
-const items = [
-  { href: withBase('work/saas-model'), title: 'A SaaS financial model built from the outside', meta: 'Case study · In progress', text: 'ARR build, churn and CAC assumptions, runway under three scenarios and a one-page board summary for a Zurich fintech, from public information only.' },
-  { href: withBase('work/accounting-automation'), title: 'Accounting automation with the controls left in', meta: 'Case study · In progress', text: 'What happened when I automated the monthly close for an SME mandate: hours saved, what stayed manual, and how reconciliation and exception review keep it honest.' },
-  { href: withBase('work/multi-entity-reporting'), title: 'Consolidated reporting across entities', meta: 'Case study · In progress', text: 'A liquidity and asset view across a holding structure with intercompany balances and shareholder loans.' },
-];
 ---
-<Base title="Work" description="Case studies: SaaS financial modelling, accounting automation, multi-entity reporting.">
-  <h1>Work</h1>
-  <p class="lede">Finished pieces, not a list of skills. Each one is something you can open and check.</p>
-  <ul class="entries">
-    {items.map((i) => (
-      <li>
-        <a class="title" href={i.href}>{i.title}</a>
-        <span class="meta">{i.meta}</span>
-        <p>{i.text}</p>
-      </li>
-    ))}
-  </ul>
+<Base
+  title="Work & Interests — Felipe Sick"
+  description="Finance practice, workflow tools and investing interests of Felipe Sick."
+>
+  <article>
+    <h1>Work &amp; interests</h1>
+    <p class="lede">
+      A short view of the areas I work in and think about, without turning unfinished projects into
+      portfolio claims.
+    </p>
+
+    <h2>Finance in practice</h2>
+    <p>
+      Accounting, reporting, VAT and year-end work for Swiss businesses. My focus is on reliable
+      numbers and understanding the business behind them.
+    </p>
+
+    <h2>Tools &amp; automation</h2>
+    <p>
+      I build and test tools for financial workflows, using APIs and AI where they are useful.
+      The aim is less manual work, clearer processes and outputs that can be checked.
+    </p>
+
+    <h2>Investing &amp; fintech</h2>
+    <p>
+      I follow businesses, capital markets and the technology behind financial services, with a
+      particular interest in Bitcoin and financial infrastructure.
+    </p>
+  </article>
 </Base>

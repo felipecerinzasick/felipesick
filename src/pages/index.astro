@@ -4,106 +4,144 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 const withBase = (path = '') => `${base}${path}`;
 ---
 <Base>
-  <section class="intro">
-    <h1>Finance and operations for founders.</h1>
-    <div class="intro-row">
-      <img src={withBase('headshot.png')} alt="Felipe Sick" width="88" height="88" class="headshot" />
-      <div>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Zurich, Switzerland</p>
+      <h1>Finance, technology &amp; investing.</h1>
       <p class="lede">
-        I'm Felipe, a finance operator in Zurich. I run accounting, VAT and year-end for Swiss
-        SMEs at a fiduciary firm, and I've automated most of the repetitive work while keeping
-        the controls that make the numbers trustworthy.
+        I'm Felipe, a finance professional in Zurich. I work with Swiss businesses, build tools
+        for financial workflows, and explore how technology is changing finance and investing.
       </p>
-      <p>
-        Before that: investment analysis in Geneva, product management in Munich, and two years
-        researching financial reporting in St. Gallen. I'm now looking to join an early-stage
-        company as its first finance hire, or to work with a few founders part-time.
-      </p>
-      <a class="button" href="mailto:felipe.sick@bluewin.ch">Write to me for a coffee</a>
+      <p class="current">Currently in accounting and process development at Burkhart &amp; Partners.</p>
+      <div class="hero-links" aria-label="Primary links">
+        <a class="button" href={withBase('writing')}>Read my writing</a>
+        <a class="text-link" href="mailto:felipe.sick@bluewin.ch">Get in touch</a>
       </div>
+    </div>
+    <img src={withBase('headshot.png')} alt="Felipe Sick" width="260" height="320" class="portrait" />
+  </section>
+
+  <section id="work" class="section">
+    <div class="section-heading">
+      <h2>Work &amp; interests</h2>
+    </div>
+    <div class="interests">
+      <section>
+        <h3>Finance in practice</h3>
+        <p>
+          Accounting, reporting, VAT and year-end work for Swiss businesses. My focus is on
+          reliable numbers and understanding the business behind them.
+        </p>
+      </section>
+      <section>
+        <h3>Tools &amp; automation</h3>
+        <p>
+          I build and test tools for financial workflows, using APIs and AI where they are useful.
+          The aim is less manual work, clearer processes and outputs that can be checked.
+        </p>
+      </section>
+      <section>
+        <h3>Investing &amp; fintech</h3>
+        <p>
+          I follow businesses, capital markets and the technology behind financial services, with
+          a particular interest in Bitcoin and financial infrastructure.
+        </p>
+      </section>
     </div>
   </section>
 
-  <h2>What I take on</h2>
-  <div class="services">
-    <div>
-      <h3>Books and close</h3>
-      <p>Monthly close, VAT, payroll accruals, year-end under Swiss OR. Automated where it's safe, reviewed where it matters.</p>
+  <section class="section writing-section">
+    <div class="section-heading">
+      <h2>Writing</h2>
+      <p>Notes on businesses, markets and financial technology.</p>
     </div>
-    <div>
-      <h3>Metrics and runway</h3>
-      <p>ARR, churn, CAC payback, burn and runway in one model the founders actually use.</p>
-    </div>
-    <div>
-      <h3>Board and investor reporting</h3>
-      <p>A one-page monthly pack, investor updates, and the data room ready before the round starts.</p>
-    </div>
-  </div>
-  <p class="muted proof">Swiss OR · VAT · Python for automation · German and English</p>
+    <ul class="entries">
+      <li>
+        <a class="title" href={withBase('writing/suitability-of-var')}>The suitability of VaR in managing economic uncertainty</a>
+        <span class="meta">October 2024 · English</span>
+        <p>
+          A look at Value at Risk, its assumptions, and the limits of using historical data to
+          understand uncertainty.
+        </p>
+        <a class="read-link" href={withBase('writing/suitability-of-var')}>Read article</a>
+      </li>
+    </ul>
+  </section>
 
-  <h2>Work</h2>
-  <ul class="entries">
-    <li>
-      <a class="title" href={withBase('work/saas-model')}>A SaaS financial model built from the outside</a>
-      <span class="meta">Case study · In progress</span>
-      <p>ARR build, churn and CAC assumptions, runway under three scenarios and a one-page board summary for a Zurich fintech, from public information only.</p>
-    </li>
-    <li>
-      <a class="title" href={withBase('work/accounting-automation')}>Accounting automation with the controls left in</a>
-      <span class="meta">Case study · In progress</span>
-      <p>What happened when I automated the monthly close for an SME mandate: hours saved, what stayed manual, and how reconciliation and exception review keep it honest.</p>
-    </li>
-    <li>
-      <a class="title" href={withBase('work/multi-entity-reporting')}>Consolidated reporting across entities</a>
-      <span class="meta">Case study · In progress</span>
-      <p>A liquidity and asset view across a holding structure with intercompany balances and shareholder loans, the way a family office or a founder with several companies needs it.</p>
-    </li>
-  </ul>
+  <section class="section about-preview">
+    <div>
+      <h2>About</h2>
+      <p>
+        My background spans finance, investment analysis and research. Before my current work with
+        Swiss SMEs, I supported investment analysis and reporting in Geneva and researched corporate
+        disclosures at the University of St.Gallen. Earlier, I worked in product management in Munich.
+      </p>
+      <p>
+        I studied industrial engineering and financial economics. I'm interested in how businesses
+        work, how capital is allocated, and where better technology can make a practical difference.
+      </p>
+      <p>Away from the desk, I'm usually cycling, swimming, running or in the mountains.</p>
+      <a class="text-link" href={withBase('about')}>More about my background</a>
+    </div>
+  </section>
 
-  <h2>Writing</h2>
-  <ul class="entries">
-    <li>
-      <a class="title" href={withBase('writing/bitcoin-und-steuern')}>Bitcoin und Steuern: Firma oder privat halten?</a>
-      <span class="meta">September 2026 · German</span>
-    </li>
-    <li>
-      <a class="title" href={withBase('writing/suitability-of-var')}>The suitability of VaR in managing economic uncertainty</a>
-      <span class="meta">October 2024</span>
-    </li>
-  </ul>
+  <section class="contact">
+    <p>Always happy to exchange ideas about finance, fintech and investing.</p>
+    <a class="button" href="mailto:felipe.sick@bluewin.ch">Email me</a>
+  </section>
 </Base>
 
 <style>
-  .intro {
-    margin-top: 1.5rem;
-  }
-
-  .intro h1 { margin-top: 0; }
-
-  .intro-row {
+  .hero {
     display: grid;
-    grid-template-columns: 88px 1fr;
-    gap: 1.25rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) clamp(13rem, 24vw, 16rem);
+    gap: clamp(2rem, 6vw, 5.5rem);
+    align-items: center;
+    padding-top: clamp(3rem, 9vw, 6rem);
   }
 
-  .headshot {
+  .hero h1 {
+    margin-top: 0;
+    max-width: 11ch;
+  }
+
+  .eyebrow {
+    color: var(--muted);
+    font-size: 0.83rem;
+    margin-bottom: 1rem;
+  }
+
+  .current {
+    color: var(--muted);
+  }
+
+  .portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
     border-radius: 8px;
-    width: 88px;
-    height: 88px;
     object-fit: cover;
-    margin-top: 0.3rem;
+    background: var(--surface);
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.1rem;
+    align-items: center;
+    margin-top: 1.4rem;
   }
 
   .button {
-    display: inline-block;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: var(--accent);
     color: #fff;
     text-decoration: none;
-    padding: 0.6rem 1.1rem;
+    padding: 0.58rem 1rem;
     border-radius: 4px;
     font-weight: 500;
-    margin-top: 0.5rem;
   }
 
   .button:hover {
@@ -111,47 +149,109 @@ const withBase = (path = '') => `${base}${path}`;
     color: #fff;
   }
 
-  .services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .text-link,
+  .read-link {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
   }
 
-  .services div {
-    border-top: 1px solid var(--rule);
-    padding-top: 0.9rem;
+  .section {
+    margin-top: clamp(3.25rem, 8vw, 5.5rem);
   }
 
-  .services h3 {
+  .section-heading {
+    max-width: var(--text-measure);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading h2,
+  .about-preview h2 {
     margin-top: 0;
-    font-size: 1.05rem;
   }
 
-  .services p {
-    font-size: 0.95rem;
+  .section-heading p {
+    color: var(--muted);
+  }
+
+  .interests {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.35rem, 3vw, 2rem);
+  }
+
+  .interests section {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  .interests h3 {
+    margin-top: 0;
+    font-size: clamp(1.17rem, 2vw, 1.28rem);
+  }
+
+  .interests p {
+    margin-bottom: 0;
+    color: var(--muted);
+  }
+
+  .writing-section {
+    max-width: var(--text-measure);
+  }
+
+  .read-link {
+    margin-top: 0.4rem;
+  }
+
+  .about-preview {
+    max-width: var(--text-measure);
+  }
+
+  .contact {
+    margin-top: clamp(3.25rem, 8vw, 5.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact p {
     margin: 0;
+    color: var(--muted);
   }
 
-  .proof {
-    font-size: 0.9rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    .intro-row {
+  @media (max-width: 720px) {
+    .hero {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding-top: 2.5rem;
     }
 
-    .headshot {
-      width: 72px;
-      height: 72px;
+    .portrait {
+      order: -1;
+      width: 4.5rem;
+      height: 4.5rem;
+      aspect-ratio: auto;
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+    }
+
+    .interests {
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
     }
   }
 
-  @media (max-width: 640px) {
-    .services {
-      grid-template-columns: 1fr;
-      gap: 1rem;
+  @media (max-width: 360px) {
+    .hero-links,
+    .contact {
+      align-items: stretch;
+      flex-direction: column;
     }
   }
 </style>

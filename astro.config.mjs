@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://felipecerinzasick.github.io',
-  base: '/felipesick',
+  site: 'https://www.felipesick.de',
   trailingSlash: 'never',
   build: { format: 'file' },
 });

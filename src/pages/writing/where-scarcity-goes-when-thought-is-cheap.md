@@ -1,8 +1,9 @@
 ---
 layout: ../../layouts/Article.astro
 title: "Where Scarcity Goes When Thought Is Cheap"
+subtitle: "Time, trust and money in an age of machines."
 date: November 2026
-summary: "Time, trust and money in an age of machines. Scarcity is a relation between wants and means, so abundance moves it rather than ending it. What stays scarce when thought is cheap, who decides how it is used, and why that takes prices, money and trust."
+description: "Scarcity is a relation between wants and means, so abundance moves it rather than ending it. What stays scarce when thought is cheap, who decides how it is used, and why that takes prices, money and trust."
 ---
 
 The people building machine intelligence increasingly say where they think it leads: to a world in which robots and software produce more than anyone can consume. Their argument is that scarcity then ends, and that prices, money and the need to economise end with it. In this article I argue that the argument mistakes a relation for a property. Scarcity is a relation between what people want and what they can have, so abundance moves it and does not end it. First I ask what stays scarce when thought becomes cheap. Then I ask who decides how the scarce things are used, and why that takes prices and money. Finally I turn to trust: why money rests on promises, how a base can be built that rests on none, and what may come once machines begin to build on each other's work.

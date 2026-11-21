@@ -20,4 +20,8 @@ const { title, description, date, status, summary } = frontmatter;
 <style>
   .article-meta { margin-top: -0.4rem; margin-bottom: 1.5rem; }
   .article-meta .status { margin-left: 0.6rem; }
+  article :global(figure) { margin: 2rem 0; }
+  article :global(figure img) { display: block; width: 100%; }
+  article :global(figcaption) { color: var(--muted); font-size: 0.85rem; margin-top: 0.6rem; }
+  article :global(pre) { overflow-x: auto; padding: 0.9rem 1rem; border: 1px solid var(--rule); border-radius: 4px; }
 </style>

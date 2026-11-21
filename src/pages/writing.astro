@@ -4,6 +4,12 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 const withBase = (path = '') => `${base}${path}`;
 const posts = [
   {
+    href: withBase('writing/why-money-survives-abundance'),
+    title: 'Why Money Survives Abundance',
+    meta: 'November 2026 · English',
+    summary: 'Scarcity, time and trust in an age of machines. Why scarcity moves rather than ends, what stays scarce when thought is cheap, and why money and trust return with it.',
+  },
+  {
     href: withBase('writing/suitability-of-var'),
     title: 'The suitability of VaR in managing economic uncertainty',
     meta: 'October 2024 · English',
